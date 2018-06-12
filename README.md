@@ -1,11 +1,11 @@
 ![cf](https://i.imgur.com/7v5ASc8.png) 02: Tools and Context
 ======
-
+https://travis-ci.org/JudyVue/01-TDD.svg?branch=master
 ## Submission Instructions
 * Work in a fork of this repository
-* Work in a branch on your fork
-* Write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-susan`
-* Open a pull request to this repository
+* Work in a branch on your fork called `lab-02`
+* Set up your forked repo to run through Travis CI as demo'd today in class
+* Open a pull request to your forked repository
 * Submit on canvas a question and observation, how long you spent, and a link to your pull request
 
 ## Configuration
@@ -18,7 +18,7 @@ Configure the root of your repository with the following files and directories. 
 * **package.json** - contains npm package config 
   * jest and eslint must be dependencies
   * create a `lint` script for running eslint `"lint": "eslint **/.js"`
-  * create a `test` script for running tests
+  * create a `test` script for running tests that says `"eslint . && jest --coverage"`
 * **lib/** - contains module definitions
 * **\_\_test\_\_/** - contains unit tests
 
@@ -27,7 +27,7 @@ Configure the root of your repository with the following files and directories. 
 #### List Module
   * implement a List constructor using a constructor, factory, or class
   * implement the length property
-  * implement the `push()` and `pop()`, `slice()` methods on the List prototype
+  * implement the `push()`, methods on the List prototype
   * implement `forEach()`, `map()`, `filter()`, and `reduce()` as pure methods on the List prototype
   * Do not use any built-in array methods to do this
   
