@@ -61,7 +61,7 @@ describe('testing methods of List class', () => {
     const sum = myList.reduce((accumulator, current) => {
       return accumulator + current;
     }, 10);
-    expect(sum).toEqual(25);
+    expect(sum).toEqual(16);
   });
-  
+
 });
