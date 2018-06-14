@@ -24,12 +24,31 @@ describe('testing methods of List class', () => {
     console.log(myList, 'in PUSH')
   });
 
+//FOREACH
+  test('FOREACH - should throw an error if the array is empty', () => {
+    const emptyArray = new List ();
+
+    expect(() => {
+      emptyArray.forEach(empty => empty);
+    }).toThrow();  
+  });
+  test('FOREACH - should run a callback function on each element in our List one by one', () => {
+    const changedList = myList.forEach((item) => {
+      return item * 2;
+    });
+    expect(() => {
+      for(let i = 0; i < myList.length; i++) {
+        (changedList[i] / 2).toEqual(myList[i]);
+      }
+    })
+  });
+
 //MAP
   test('MAP - should throw an error if the array is empty', () => {
-    const emptyList = new List (); //emptylist is a new instance of our List class that is empty
+    const emptyArray = new List (); //emptylist is a new instance of our List class that is empty
 
   expect(() => {
-    emptyList.map(empty => empty);
+    emptyArray.map(empty => empty);
     }).toThrow();
   });
 
@@ -39,14 +58,30 @@ describe('testing methods of List class', () => {
     }).toThrow();
   });
 
-  test('MAP - should return a new list (array)', () => {
+  test('MAP: should return a new list', () => {
     const newList = myList.map((num) => {
-      return num * 2; //we are returning num * 2 which should be *2 to every index of num(array)
+      return num * 2;
     });
-    expect(newList.length).toEqual(myList.length); //newList length should remain the same
-    for(let i = 0; i < newList.length; i++) {
-      expect(newList[i] / 2).toEqual(myList[i]); //this makes sure the map has multiplied each index by 2, thus we expect our newList / 2 to equal our original list
+    expect(newList.length).toEqual(myList.length);
+    for (let i = 0; i < newList.length; i++) {
+      expect(newList[i] / 2).toEqual(myList[i]);
     }
+  });
+
+  //FILTER
+  test('FILTER - should throw an error if a function is not passed in', () => {
+    expect(() => {
+      myList.filter('not a function');
+    }).toThrow();
+  });
+
+  test('FILTER - should return a new list (array) of indices that pass as true', () => {
+    const newList = myList.filter((num) => {
+      return num;
+    });
+    for(let i = 0; i < newList.length; i++) {
+      expect(newList[i]).toBeTruthy; 
+    } 
   });
 
 //REDUCE
